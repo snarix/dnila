@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище TESTModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Копия user_import">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Роль_сотрудника" Type="nvarchar" MaxLength="50" />
+          <Property Name="ФИО" Type="nvarchar" MaxLength="50" />
+          <Property Name="Логин" Type="nvarchar" MaxLength="50" />
+          <Property Name="Пароль" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Копия Заказ_import">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Номер_заказа" Type="int" />
+          <Property Name="Состав_заказа" Type="nvarchar" MaxLength="50" />
+          <Property Name="Дата_заказа" Type="int" />
+          <Property Name="Дата_доставки" Type="int" />
+          <Property Name="Пункт_выдачи" Type="tinyint" />
+          <Property Name="ФИО_клиента" Type="nvarchar" MaxLength="50" />
+          <Property Name="Код_для_получения" Type="smallint" />
+          <Property Name="Статус_заказа" Type="nvarchar" MaxLength="50" />
+          <Property Name="column9" Type="nvarchar" MaxLength="1" />
+          <Property Name="column10" Type="nvarchar" MaxLength="1" />
+          <Property Name="column11" Type="nvarchar" MaxLength="1" />
+          <Property Name="column12" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Копия Пункты выдачи_import">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="column1" Type="int" />
+          <Property Name="column2" Type="nvarchar" MaxLength="50" />
+          <Property Name="column3" Type="nvarchar" MaxLength="50" />
+          <Property Name="column4" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Копия Товар_import_Посуда">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Артикул" Type="nvarchar" MaxLength="50" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="50" />
+          <Property Name="Единица_измерения" Type="nvarchar" MaxLength="50" />
+          <Property Name="Стоимость" Type="smallint" />
+          <Property Name="Размер_максимально_возможной_скидки" Type="tinyint" />
+          <Property Name="Производитель" Type="nvarchar" MaxLength="50" />
+          <Property Name="Поставщик" Type="nvarchar" MaxLength="50" />
+          <Property Name="Категория_товара" Type="nvarchar" MaxLength="50" />
+          <Property Name="Действующая_скидка" Type="tinyint" />
+          <Property Name="Кол_во_на_складе" Type="tinyint" />
+          <Property Name="Описание" Type="nvarchar" MaxLength="100" />
+          <Property Name="Изображение" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="Хранилище TESTModelContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Копия user_import" EntityType="Self.Копия user_import" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Копия Заказ_import" EntityType="Self.Копия Заказ_import" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Копия Пункты выдачи_import" EntityType="Self.Копия Пункты выдачи_import" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Копия Товар_import_Посуда" EntityType="Self.Копия Товар_import_Посуда" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TESTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Копия_user_import">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Роль_сотрудника" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ФИО" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Логин" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Пароль" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Копия_Заказ_import">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Номер_заказа" Type="Int32" />
+          <Property Name="Состав_заказа" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Дата_заказа" Type="Int32" />
+          <Property Name="Дата_доставки" Type="Int32" />
+          <Property Name="Пункт_выдачи" Type="Byte" />
+          <Property Name="ФИО_клиента" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Код_для_получения" Type="Int16" />
+          <Property Name="Статус_заказа" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="column9" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="column10" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="column11" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="column12" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Копия_Пункты_выдачи_import">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="column1" Type="Int32" />
+          <Property Name="column2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="column3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="column4" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Копия_Товар_import_Посуда">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Артикул" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Наименование" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Единица_измерения" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Стоимость" Type="Int16" />
+          <Property Name="Размер_максимально_возможной_скидки" Type="Byte" />
+          <Property Name="Производитель" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Поставщик" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Категория_товара" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Действующая_скидка" Type="Byte" />
+          <Property Name="Кол_во_на_складе" Type="Byte" />
+          <Property Name="Описание" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Изображение" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="TESTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Копия_user_import" EntityType="Self.Копия_user_import" />
+          <EntitySet Name="Копия_Заказ_import" EntityType="Self.Копия_Заказ_import" />
+          <EntitySet Name="Копия_Пункты_выдачи_import" EntityType="Self.Копия_Пункты_выдачи_import" />
+          <EntitySet Name="Копия_Товар_import_Посуда" EntityType="Self.Копия_Товар_import_Посуда" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище TESTModelContainer" CdmEntityContainer="TESTEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TESTModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Копия_user_import">
+            <EntityTypeMapping TypeName="TESTModel.Копия_user_import">
+              <MappingFragment StoreEntitySet="Копия user_import">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Роль_сотрудника" ColumnName="Роль_сотрудника" />
+                <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+                <ScalarProperty Name="Логин" ColumnName="Логин" />
+                <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Копия_Заказ_import">
+            <EntityTypeMapping TypeName="TESTModel.Копия_Заказ_import">
+              <MappingFragment StoreEntitySet="Копия Заказ_import">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Номер_заказа" ColumnName="Номер_заказа" />
+                <ScalarProperty Name="Состав_заказа" ColumnName="Состав_заказа" />
+                <ScalarProperty Name="Дата_заказа" ColumnName="Дата_заказа" />
+                <ScalarProperty Name="Дата_доставки" ColumnName="Дата_доставки" />
+                <ScalarProperty Name="Пункт_выдачи" ColumnName="Пункт_выдачи" />
+                <ScalarProperty Name="ФИО_клиента" ColumnName="ФИО_клиента" />
+                <ScalarProperty Name="Код_для_получения" ColumnName="Код_для_получения" />
+                <ScalarProperty Name="Статус_заказа" ColumnName="Статус_заказа" />
+                <ScalarProperty Name="column9" ColumnName="column9" />
+                <ScalarProperty Name="column10" ColumnName="column10" />
+                <ScalarProperty Name="column11" ColumnName="column11" />
+                <ScalarProperty Name="column12" ColumnName="column12" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Копия_Пункты_выдачи_import">
+            <EntityTypeMapping TypeName="TESTModel.Копия_Пункты_выдачи_import">
+              <MappingFragment StoreEntitySet="Копия Пункты выдачи_import">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="column1" ColumnName="column1" />
+                <ScalarProperty Name="column2" ColumnName="column2" />
+                <ScalarProperty Name="column3" ColumnName="column3" />
+                <ScalarProperty Name="column4" ColumnName="column4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Копия_Товар_import_Посуда">
+            <EntityTypeMapping TypeName="TESTModel.Копия_Товар_import_Посуда">
+              <MappingFragment StoreEntitySet="Копия Товар_import_Посуда">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Артикул" ColumnName="Артикул" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="Единица_измерения" ColumnName="Единица_измерения" />
+                <ScalarProperty Name="Стоимость" ColumnName="Стоимость" />
+                <ScalarProperty Name="Размер_максимально_возможной_скидки" ColumnName="Размер_максимально_возможной_скидки" />
+                <ScalarProperty Name="Производитель" ColumnName="Производитель" />
+                <ScalarProperty Name="Поставщик" ColumnName="Поставщик" />
+                <ScalarProperty Name="Категория_товара" ColumnName="Категория_товара" />
+                <ScalarProperty Name="Действующая_скидка" ColumnName="Действующая_скидка" />
+                <ScalarProperty Name="Кол_во_на_складе" ColumnName="Кол_во_на_складе" />
+                <ScalarProperty Name="Описание" ColumnName="Описание" />
+                <ScalarProperty Name="Изображение" ColumnName="Изображение" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
